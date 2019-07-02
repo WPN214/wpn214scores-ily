@@ -23,11 +23,15 @@
 }
 
 %------------------------------------------------------------------------------
-niwood = \new Voice 
+niwood_hi =
+% small bell, high resonance sustain and short percussive attack
+% kaivo scale: chin_pipa
+% note: .mlpreset should be enclosed, along with the used soundfile
 %------------------------------------------------------------------------------
 {
         \set Staff.instrumentName = #"niwood"
-        \tempo "Larghetto"
+        \tempo "Lento"
+        % should be around 60 or slower 
         \arpeggioArrowUp
 
            %1
@@ -169,7 +173,22 @@ niwood = \new Voice
 }
 
 %------------------------------------------------------------------------------
-spring = \new Voice
+niwood_lo =
+% small bell, high resonance sustain and short percussive attack
+% kaivo scale: chin_pipa
+% note: .mlpreset should be enclosed, along with the used soundfile
+%------------------------------------------------------------------------------
+{
+        \clef bass
+        r1. | r1. | r1 r1 | r1 | r1 | r1 r1 |
+        r1 r1 | r1 | r1 r1 | r1 r1 |
+        r1 | r1 r1 | r1 | r1 | r1. |
+        r1 r1 | r1. | r1. | r1 | r1. | r1 | r1 r1
+}
+%------------------------------------------------------------------------------
+spring =
+% spring: large spring, high resonance sustain, medium attack (300ms approx)
+% scale: chin_sona 
 %------------------------------------------------------------------------------
 {
         \set Staff.instrumentName = #"spring"
@@ -243,10 +262,16 @@ spring = \new Voice
 }
 
 %------------------------------------------------------------------------------
-\score {
-%------------------------------------------------------------------------------	
-        \new StaffGroup <<
-                \new Staff \niwood
-                \new Staff \spring
-        >>
+\score 
+%------------------------------------------------------------------------------
+{
+        << 
+        \new PianoStaff << 
+                \new Staff = "niwood_hi"\niwood_hi
+                \new Staff = "niwood_lo"\niwood_lo
+                >>
+        \new Voice = "spring"\spring   
+        >>     
+	
+
 }
