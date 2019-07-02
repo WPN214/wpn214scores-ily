@@ -28,22 +28,22 @@ niwood = \new Voice
 {
         \set Staff.instrumentName = #"niwood"
         \tempo "Larghetto"
-        \time 3/2
-
         \arpeggioArrowUp
 
            %1
+         \time 3/2
          <g' f''>1.\ppp\arpeggio
 
          | %2
          <g'~ f''>2\pp\arpeggio
-         <g'  f''>1\ppp 
+         <g'  f''>1^\ppp 
 
          | %3
          \time 4/2
-         <g'~   f''>2\pp\arpeggio
-         \grace gis''32<g'~ g''>2
-         \grace g''32<g'~ fis''>4
+         \tieDown
+         <g' f''>2~ \pp\arpeggio
+         \grace gis''32<g'~ f''~ g''  >2
+         \grace g''  32<g'~ f'' fis''>4
          \grace fis''32<g' f''>2. 
          
          | %4
@@ -58,9 +58,9 @@ niwood = \new Voice
          | %6
          \time 4/2
          <g'~ cis''~ f''>4\pp\arpeggio
-         <g'~ cis''~ f''>4\ppp
-         \grace gis''32<g'~ cis''~ g''>2
-         \grace g''32<g'~ cis''~ fis''>4
+         <g'~ cis''~ f''~>4^\ppp
+         \grace gis''32<g'~ cis''~ f''~ g''>2
+         \grace g''32<g'~ cis''~ f'' fis''>4
          \grace fis''32<g' cis'' f''>2.  
          
          | %7
@@ -81,9 +81,9 @@ niwood = \new Voice
          | %9
          \time 4/2
          <g'~ cis''~ f''>4\pp\arpeggio
-         <g'~ cis''~ f''>4\ppp
-         \grace gis''32<g'~ cis''~ g''>2
-         \grace g''32<g'~ cis''~ fis''>4
+         <g'~ cis''~ f''~>4^\ppp
+         \grace gis''32<g'~ cis''~ f''~ g''>2
+         \grace g''32<g'~ cis''~ f'' fis''>4
          \grace fis''32<g' cis'' f''>2. 
          
          | %10
@@ -105,9 +105,9 @@ niwood = \new Voice
          | %12
          \time 4/2
          <g'~ cis''~ f''>4\pp\arpeggio
-         <g'~ cis''~ f''>4\ppp
-         \grace gis''32<g'~ cis''~ g''>2
-         \grace g''32<g'~ cis''~ fis''>4
+         <g'~ cis''~ f''~>4^\ppp
+         \grace gis''32<g'~ cis''~ f''~ g''>2
+         \grace g''32<g'~ cis''~ f'' fis''>4
          \grace fis''32<g' cis'' f''>2.  
          
          | %13
@@ -116,7 +116,6 @@ niwood = \new Voice
          <g'  c''  f'' ais''>2
          
          | %14
-         \time 2/2
          <g'~ c''~ f''~>2\arpeggio
          <g'~ c''~ f''~ a''>4
          <g'~ c''~ f''~ ais''>8.
@@ -131,16 +130,15 @@ niwood = \new Voice
          \time 4/2
          <g'~  cis''~ f''~>2\pp\arpeggio
          \grace gis''32<g'~ cis''~ f''~ g''>2
-         \grace g''32<g'~ cis''~ f''~ fis''>4
+         \grace g''32<g'~ cis''~ f'' fis''>4
          \grace fis''32<g' cis'' f''>2. 
          
          | %17
          \time 3/2
-         <g' b' f''>1.\arpeggio 
+         <g' b' f''>1.\arpeggio^"vibr." 
          
          | %18
-         \time 3/2
-         <g' b' f''>1.\arpeggio 
+         <g' b' f''>1.\arpeggio^"vibr."
          
          | %19
          \time 2/2
