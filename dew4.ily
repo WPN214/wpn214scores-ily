@@ -205,29 +205,7 @@ niwood_lo =
 {
         \clef bass
 
-        %1
-        r1.
-
-        | %2
-         r1.
-
-        | %3 
-        r1 r1
-
-        | %4 
-        r1 
-
-        | %5 
-        r1 
-
-        | %6 
-        r1 r1
-
-        | %7 
-        r1 r1 r1
-
-        | %8 
-        r1 
+        R2*26
 
         | %9 
         \tieDown
@@ -236,9 +214,7 @@ niwood_lo =
         <dis gis>2\ff~
         
         | %10 
-        <dis gis>1~
-        <dis gis>1~
-        <dis gis>1~
+        <dis gis>\breve.~
         
         | %11
         <dis gis>1 
@@ -247,32 +223,71 @@ niwood_lo =
         r1 r1 
         
         | %13 
-        r1 r1 r1        
+        \clef treble
+        r1 r1
+        r2. 
+        <fis~ dis'~ fis'~>4
         
         | %14
-        r1. 
+        <fis~ dis'~ fis'~>1
+        <fis  dis'  fis'>4
+        <fis  dis'  fis'>4 
         
         | %15
-        r1 r1 
+        \arpeggioArrowUp
+        <gis'~ dis'~>1\arpeggio
+        <gis'  dis' >1
         
         | %16 
         r1. 
         
         | %17 
-        r1. 
+        r2
+        \grace <f ais>8
+        <dis gis>2.
+        <fis~ dis'~ fis'~>4
         
         | %18 
-        r1 
+        <fis  dis' fis'>2 
+        <gis' dis'>2\arpeggio
         
         | %19 
-        r1. 
+        r2.
+        <fis dis' fis'>2.\pp
         
         | %20 
-        r1 
+        <gis' dis'>2\arpeggio
+        <fis dis' fis'>2\pp 
         
         | %21 
-        r1 r1 r1
+        <gis' dis'>1\arpeggio 
+        r1 
+        r1
 }
+
+%------------------------------------------------------------------------------
+rainstick =
+% sounds a bit like a rainstick
+%------------------------------------------------------------------------------
+{
+        \set Staff.instrumentName = #"rainstick"
+        \compressFullBarRests
+        \tieDown
+
+        % 1-8
+        R2*26
+
+        %9
+        r1.
+        <fis'~ gis'~ b'~ cis''~>2\pp
+        <fis'~ gis'~ b'~ cis''~>\breve.
+        ^\markup {\teeny{amplitude should rise to p and fall back to pp slowly and continuously}}
+        %
+
+
+
+}
+
 %------------------------------------------------------------------------------
 spring =
 % spring: large spring, high resonance sustain, medium attack (300ms approx)
@@ -281,40 +296,19 @@ spring =
 {
         \set Staff.instrumentName = #"spring"
         \time 3/2
+        \clef bass
 
-          %1
-        r1.
-        _\markup{\teeny{spring should start by breath-like light treble tones}}
-
-        | %2
-        r1. 
-
-        | %3
-        r1 r1
-
-        | %4
-        r1  
-
-        | %5
-        r1  
-
-        | %6
-        r1 r1
-
-        | %7
-        r1 r1 r1
-
-        | %8
-        r1 
+        % 1-8
+        R2*26
 
         | %9
         r1 r1 
         
         | %10
-        r1 r1 r1
+        gis,\breve.~
         
         | %11
-        r1
+        gis,1
 
         | %12
         r1 r1 
@@ -322,17 +316,20 @@ spring =
         | %13
         r1 r1 r1        
         
-        | %14
-        r1. 
+        | %14 
+        r4
+        g,1~
+        g,4
         
         | %15
-        r1 r1 
+        r1.
+        ais,2~
         
         | %16
-        r1. 
+        ais,1.
         
         | %17
-        r1. 
+        cis,1. 
         
         | %18
         r1 
@@ -348,15 +345,61 @@ spring =
 }
 
 %------------------------------------------------------------------------------
+markhor = 
+% rhythmic spring
+%------------------------------------------------------------------------------
+{
+        \set Staff.instrumentName = #"markhor"
+        \clef treble
+
+        %starts measure 13
+        R2*42
+        r2 r2.
+        r4
+        f'1.
+
+        | % 14
+        r2 
+        f'1~
+
+        | %15
+        f'\breve~
+
+        | %16
+        f'1.~
+
+        | %17
+        f'1.~
+
+        | %18
+        f'1~
+
+        | %19
+        f'1.~
+
+        | %20
+        f'1~
+
+        | %21
+        f'\breve.
+
+}
+
+%------------------------------------------------------------------------------
 \score 
 %------------------------------------------------------------------------------
 {
         << 
-        \new PianoStaff << 
+        \new PianoStaff 
+                << 
                 \new Staff = "niwood_hi"\niwood_hi
                 \new Staff = "niwood_lo"\niwood_lo
                 >>
+        \new Voice = "rainstick"\rainstick
+        \new Voice = "markhor"\markhor
         \new Voice = "spring"\spring   
+
+        
         >>     
 
         \midi{}
